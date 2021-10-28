@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# this script displays numbers from 1 to 20
+# 4th iteration prints 4 and in a new line bad luck from China
+# 5th iteration prints 9 and in a new line bad luck from Japan
+# 6th iteration prints 17 and in a new line bad luck from Italy
+i=1
+while [[ $i -le 20 ]]
+do
+	echo "$i"
+	case $i in
+		4)
+			echo "bad luck from China";;
+		9)
+			echo "bad luck from Japan";;
+		17)
+			echo "bad luck from Italy";;
+	esac
+	((i++))
+done
