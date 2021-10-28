@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# this script displays 10 times "Best School" excepth in the 4th & 8th iterarion
+i=1
+while [ $i -le 10 ]
+do
+	if [[ $i == 4 ]]; then
+		echo "bad luck";	i=$((i+1))
+	elif [[ $i == 8 ]]; then
+		echo "good luck";	i=$((i+1))
+	else
+		echo "Best School"
+		i=$((i+1))
+	fi
+done
