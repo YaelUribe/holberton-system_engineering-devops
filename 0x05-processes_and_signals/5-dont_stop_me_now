@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Don't stop me now!, to kill a specific process
 a="$(pgrep -f 4-to_infinity_and_beyond)"
-kill $a
+kill "$a"
