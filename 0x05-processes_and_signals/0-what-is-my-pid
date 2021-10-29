@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# shell script to determine own process PID
 ps $$
