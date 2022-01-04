@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-ssh ~/.ssh/school ubuntu PubkeyAuthentication no
+ssh ~/.ssh/school ubuntu@35.243.157.229 PubkeyAuthentication no
