@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # Script to access a remote server using private key
-ssh -i ~/.ssh/school ubuntu@35.231.52.132
+ssh -i ~/.ssh/school ubuntu@35.231.143.181
