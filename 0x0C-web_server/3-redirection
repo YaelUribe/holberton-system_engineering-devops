@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 # Configure my nginx to redirect
 
-sudo service nginx stop
 sudo apt-get -y update
 sudo apt-get -y install nginx
 echo "Hello World" | sudo tee /var/www/html/index.html > /dev/null
-sudo chmod 755 /etc/nginx/sites-available/default /etc/nginx/sites-available/
-r_director="rewrite ^/redirect_me https:\/\/www.youtube.com\/watch?v=x09sTIjual8 permanent;"
-sudo sed -i "19i $r_director" /etc/nginx/sites-available/default
-
-sudo service nginx start
+sudo chmod 777 /etc/nginx/sites-available/default /etc/nginx/sites-available/
+sudo sed -i "/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=x09sTIjual8 permanent;" /etc/nginx/sites-enabled/default
+sudo service nginx restart
