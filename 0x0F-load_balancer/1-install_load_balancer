@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Setting up my HAProxy load balancer
+
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+sudo chmod 777 /etc/haproxy/haproxy.cfg
+echo '' > /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
