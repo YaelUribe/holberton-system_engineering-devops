@@ -4,5 +4,12 @@
 sudo apt-get -y update
 sudo apt-get -y install haproxy
 sudo chmod 777 /etc/haproxy/haproxy.cfg
-echo '' > /etc/haproxy/haproxy.cfg
+echo "frontend load_balancer
+    bind *:80
+    default_backend 2962servers
+
+backend 2962servers
+    balance roundrobin
+    server 2962-web-01 35.231.143.181:80 check
+    server 2962-web-02 54.242.19.243:80 check" >> /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
