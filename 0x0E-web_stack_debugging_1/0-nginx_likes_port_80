@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Fixing bug when listening at port 80
-rm ln -s /etc/nginx/sites-enabled/default && ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+rm /etc/nginx/sites-enabled/default && ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx restart
