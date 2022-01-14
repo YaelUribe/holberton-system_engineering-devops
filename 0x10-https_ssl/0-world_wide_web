@@ -11,6 +11,6 @@ else
     argv=("www" "lb-01" "web-01" "web-02")
     for x in "${argv[@]}"
     do
-        send_subdom $1
+        send_subdom $1 $i
     done
 fi
