@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Script to configure domain zone to point to load balancer
+if [ "$#" == 2 ]
+then
+    argv=$2
+else
+    argv=('www' 'lb-01' 'web-01' 'web-02')
+fi
+
+for argv in "{#argv[@]}"
+do
+    echo -n "This subdomain $argv"
+    dig "$argv.$1" | grep - A1 'ANSWER SECTION:' | tail -n1 |
+    awk "{print " is a " $4 " record and points to " $5}" 
+done
