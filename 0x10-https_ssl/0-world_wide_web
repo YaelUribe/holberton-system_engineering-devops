@@ -1,18 +1,16 @@
 #!/usr/bin/env bash
 # Script to configure domain zone to point to load balancer
-if [ "$#" == 2 ]
+send_subdom()
+{
+    dig "$2.$1" | grep - A1 'ANSWER SECTION:' | tail -n1 | awk -v s_dom=$2 {print "The subdomain " s_dom " is a " $4 " record and points to " $5}
+}
+if [ "$#" <= 2 ]
 then
-    argv=$2
+    send_subdom $1 $2
 else
-    argv=("www"
-         "lb-01"
-         "web-01"
-         "web-02"
-         )
+    argv=("www" "lb-01" "web-01" "web-02")
+    for x in "${argv[@]}"
+    do
+        send_subdom $1
+    done
 fi
-
-for subdomain in "${argv[@]}"
-do
-    echo -n "The subdomain $subdomain"
-    dig "$subdomain.$1" | grep - A1 'ANSWER SECTION:' | tail -n1 | awk {print " is a " $4 " record and points to " $5}
-done
