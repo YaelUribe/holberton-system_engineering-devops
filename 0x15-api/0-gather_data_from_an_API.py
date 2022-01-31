@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Python script for gathering data from an API"""
-from unicodedata import name
 import requests
 from sys import argv
 
@@ -15,7 +14,8 @@ if __name__ == '__main__':
     TODO = requests.get('{}todos?userId={}'.format(URL, EMPLOYEE_ID)).json()
     TASKS = len(TODO)
 
-    COMPLETED_T = requests.get('{}todos?userId={}&&completed=true'.format(URL, EMPLOYEE_ID)).json()
+    COMPLETED_T = requests.get('{}todos?userId={}&&completed=true'
+                               .format(URL, EMPLOYEE_ID)).json()
     DONE = len(COMPLETED_T)
 
     print("Employee {} is done with tasks({}/{}):"
