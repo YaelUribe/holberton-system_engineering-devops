@@ -14,10 +14,10 @@ if __name__ == '__main__':
 
     #  export data to CSV
     USER_ID = "{}.csv".format(EMPLOYEE_ID)
-    with open(USER_ID, "w")as f:
-        FILE = csv.writer(f, quoting=csv.QUOTE_ALL)
+    with open(USER_ID, "w", newline='') as f:
+        FILE = csv.writer(f, quoting=csv.QUOTE_ALL, delimiter=',')
         for row in TODO:
-            FILE.writerow(USER['id'],
+            FILE.writerow([int(EMPLOYEE_ID),
                           USER['username'],
                           row['completed'],
-                          row['title'])
+                          row['title']])
